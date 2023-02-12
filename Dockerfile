@@ -1,8 +1,9 @@
 FROM php:8-apache
 
 RUN apt update && \
-	apt install -y libxslt1-dev libsqlite3-dev libxslt1.1 libsqlite3-0 && \
-	docker-php-ext-install pdo pdo_mysql pdo_sqlite xsl && \
+	apt install -y libxslt1-dev libsqlite3-dev libpng-dev libjpeg-dev libxslt1.1 libsqlite3-0 && \
+	docker-php-ext-configure gd --with-jpeg && \
+	docker-php-ext-install pdo pdo_mysql pdo_sqlite xsl gd && \
 	apt purge --auto-remove -y libxslt1-dev libsqlite3-dev && \
 	apt clean
 
