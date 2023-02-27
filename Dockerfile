@@ -7,7 +7,7 @@ RUN apt update && \
 	apt purge --auto-remove -y libxslt1-dev libsqlite3-dev && \
 	apt clean
 
-RUN a2enmod rewrite
+RUN a2enmod rewrite && a2enmod userdir
 
 ENV APACHE_DOCUMENT_ROOT /var/www/html
 RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
