@@ -1,4 +1,4 @@
-TAG?=1.1
+TAG?=1.3
 PLATFORM?=linux/amd64,linux/arm64
 
 build-push:
